@@ -136,6 +136,10 @@ DELIM:","
 SAVEFILE:`:KUTR.csv
 
 \d .
-@[value;"\\l k4unit.custom.q";::];      
+
+// cd into k4unit directory
+// and use relative filepaths to locate repository files
+system "cd ","/" sv -1_"/" vs string .z.f;
+@[value;"\\l k4unit.custom.q";::];
 
 
