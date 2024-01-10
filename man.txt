@@ -1,0 +1,16 @@
+Usage: q k4unit.q [-verbose V] [-debug D] [-delim D] [-savefile F] [-patterns P1,P2,...] [-dirs D1,D2,...]    
+-verbose
+        0 - no logging to console
+        1 - log filenames (default)
+        >1 - log tests
+-debug
+        0 - trap errors, press on regardless (default)
+        1 - suspend if errors (except if action=`fail of course)
+-delim
+        Delimiter used when reading in test files (default: ",")
+-savefile
+        File handle to save test results to, relative to k4unit directory (default: not saved)
+-patterns
+        Comma-delimited string of q regex patterns to use in test discovery (default: *.csv)
+-dirs
+        Comma-delimited list of filepath handles to look for test files under (default: `:..)
