@@ -14,3 +14,6 @@ Usage: q k4unit.q [-verbose V] [-debug D] [-delim D] [-savefile F] [-patterns P1
         Comma-delimited string of q regex patterns to use in test discovery (default: *.csv)
 -dirs
         Comma-delimited list of filepath handles to look for test files under (default: `:..)
+-exit
+        0 - Stay in q console after tests (Default)
+        1 - Exit with code 0 or 1 depending on whether tests pass or fail
