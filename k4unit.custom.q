@@ -31,13 +31,14 @@ Workflow for parsing CLI options
 \
 parseArgs:{
   displayHelp[`:./man.txt;x];                    / CLI help
-  d:`VERBOSE`DEBUG`DELIM`SAVEFILE`PATTERNS#.KU;       / Defaults defined in .KU
+  d:`VERBOSE`DEBUG`DELIM`SAVEFILE`PATTERNS`EXIT#.KU;       / Defaults defined in .KU
   .KU,:a:.Q.def[d;upper[key opt]!value opt:.Q.opt x]; / Update .KU namespace with args
   show a;
   };
 
 // Variables
 .KU.PATTERNS:enlist"test*.csv";   / List of patterns used to discern test files
+.KU.EXIT:0b;                      / Flag for whether to exit
 
 // Workflows
 main:{
@@ -45,6 +46,7 @@ main:{
   safeKUltf each findFiles[`:../..;.KU.PATTERNS]; / Test discovery under directory by pattern
   KUrt`;    / Run tests
   KUstr`;   / Save test results
+  if[.KU.EXIT;exit KUfailed`];                    / Exit q with appropriate code
   };
 
 main`;
